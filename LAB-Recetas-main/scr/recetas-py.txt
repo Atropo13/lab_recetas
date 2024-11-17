@@ -1,0 +1,29 @@
+from collections import namedtuple
+import csv
+
+Ingrediente = namedtuple("Ingrediente",
+					[("nombre",str),
+					 ("cantidad",float),
+					 ("unidad",str)])
+						 
+Receta = namedtuple("Receta", 
+                    [("denominacion", str),
+                     ("tipo", str),
+                     ("dificultad", str),
+                     ("ingredientes", List[Ingrediente]),
+                     ("tiempo", int),
+                     ("calorias", int),
+                     ("fecha", date),
+                     ("precio", float)])
+
+def lee_recetas(ruta):
+   
+    with open (ruta, encoding='UTF-8', delimiter = ";" ) as f:
+        lector = csv.reader(f)
+
+        res =[]
+        for recetas in lector:
+            res.append(recetas) 
+
+
+
